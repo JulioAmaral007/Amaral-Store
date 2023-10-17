@@ -1,4 +1,5 @@
 import { Header } from '@/components/ui/header'
+import { NextAuthProvider } from '@/providers/auth'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
@@ -13,6 +14,20 @@ export const metadata: Metadata = {
   title: 'KX Store',
   description:
     'Conectando clientes e produtos - Bem-vindo à nossa loja online, onde a sua próxima compra está a apenas um clique de distância. #EcommerceInovador 💻🌐🛍️',
+  keywords: ['E-commerce'],
+  openGraph: {
+    images: [],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+    },
+  },
 }
 
 export default function RootLayout({
@@ -23,8 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Header />
-        {children}
+        <NextAuthProvider>
+          <Header />
+          {children}
+        </NextAuthProvider>
       </body>
     </html>
   )
