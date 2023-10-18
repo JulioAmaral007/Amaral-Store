@@ -1,6 +1,5 @@
-'use client'
-
 import Image from 'next/image'
+import Categories from './components/categories'
 
 export default function Home() {
   return (
@@ -13,6 +12,10 @@ export default function Home() {
         height={0}
         width={0}
       />
+
+      <div className="mt-8">
+        <Categories />
+      </div>
     </div>
   )
 }
