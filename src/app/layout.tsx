@@ -1,3 +1,4 @@
+import Footer from '@/components/ui/footer'
 import { Header } from '@/components/ui/header'
 import { NextAuthProvider } from '@/providers/auth'
 import type { Metadata } from 'next'
@@ -41,6 +42,7 @@ export default function RootLayout({
         <NextAuthProvider>
           <Header />
           {children}
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>
