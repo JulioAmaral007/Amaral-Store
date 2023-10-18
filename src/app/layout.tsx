@@ -1,4 +1,4 @@
-import Footer from '@/components/ui/footer'
+import { Footer } from '@/components/ui/footer'
 import { Header } from '@/components/ui/header'
 import { NextAuthProvider } from '@/providers/auth'
 import type { Metadata } from 'next'
@@ -39,11 +39,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <NextAuthProvider>
-          <Header />
-          {children}
-          <Footer />
-        </NextAuthProvider>
+        <div className="flex flex-col h-full">
+          <NextAuthProvider>
+            <Header />
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </NextAuthProvider>
+        </div>
       </body>
     </html>
   )
