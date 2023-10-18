@@ -9,12 +9,14 @@ import {
   ShoppingCartIcon,
 } from 'lucide-react'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from './avatar'
 import { Button } from './button'
 import { Card } from './card'
 import { Separator } from './separator'
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -101,10 +103,17 @@ export function Header() {
                 Ofertas
               </Button>
 
-              <Button variant="outline" className="w-full justify-start gap-2">
-                <ListOrderedIcon size={16} />
-                Catálogo
-              </Button>
+              <SheetClose asChild>
+                <Link href="/catalog">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start gap-2"
+                  >
+                    <ListOrderedIcon size={16} />
+                    Catálogo
+                  </Button>
+                </Link>
+              </SheetClose>
             </div>
           </SheetContent>
         </Sheet>
