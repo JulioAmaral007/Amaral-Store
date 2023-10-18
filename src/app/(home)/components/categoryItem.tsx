@@ -13,7 +13,7 @@ interface CategoryItemProps {
   category: Category
 }
 
-export default function CategoryItem({ category }: CategoryItemProps) {
+export function CategoryItem({ category }: CategoryItemProps) {
   const categoryIcon = {
     keyboards: <Keyboard size={18} />,
     mouses: <Mouse size={18} />,
