@@ -26,7 +26,7 @@ export function ProductInfo({
     setQuantity((prev) => prev + 1)
   }
   return (
-    <div className="flex flex-col p-5">
+    <div className="flex flex-col px-5">
       <h2 className="text-lg">{name}</h2>
 
       <div className="flex items-center gap-2">

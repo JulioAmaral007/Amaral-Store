@@ -1,3 +1,4 @@
+import { ProductList } from '@/components/ui/productList'
 import { computeProductTotalPrice } from '@/helpers/product'
 import { prismaClient } from '@/lib/prisma'
 import { ProductImages } from './components/productImages'
@@ -16,14 +17,28 @@ export default async function ProductDetails({
     where: {
       slug,
     },
+    include: {
+      category: {
+        include: {
+          products: {
+            where: {
+              slug: {
+                not: slug,
+              },
+            },
+          },
+        },
+      },
+    },
   })
 
   if (!product) return null
 
   return (
-    <div>
+    <div className="flex flex-col gap-8 pb-8">
       <ProductImages imageUrls={product.imageUrls} name={product.name} />
       <ProductInfo product={computeProductTotalPrice(product)} />
+      <ProductList products={product.category.products} />
     </div>
   )
 }
