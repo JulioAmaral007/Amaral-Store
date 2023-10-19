@@ -1,8 +1,9 @@
 import { computeProductTotalPrice } from '@/helpers/product'
 import { CartContext } from '@/providers/cart'
-import { ShoppingCartIcon } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { useContext } from 'react'
 import { Badge } from './badge'
+import { CartItem } from './cartItem'
 
 export function Cart() {
   const { products } = useContext(CartContext)
@@ -13,7 +14,7 @@ export function Cart() {
         className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase"
         variant="outline"
       >
-        <ShoppingCartIcon size={16} />
+        <ShoppingCart size={16} />
         Carrinho
       </Badge>
 
