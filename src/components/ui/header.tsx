@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from './avatar'
 import { Button } from './button'
 import { Card } from './card'
+import { Cart } from './cart'
 import { Separator } from './separator'
 import {
   Sheet,
@@ -124,9 +125,17 @@ export function Header() {
           </h1>
         </Link>
 
-        <Button size="icon" variant="outline">
-          <ShoppingCartIcon />
-        </Button>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button size="icon" variant="outline">
+              <ShoppingCartIcon />
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent>
+            <Cart />
+          </SheetContent>
+        </Sheet>
       </Card>
     </div>
   )
