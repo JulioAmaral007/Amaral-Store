@@ -35,7 +35,7 @@ export default async function Home() {
         alt="Até 55% de desconto em mouses!"
       />
 
-      <div className="px-5">
+      <div className="px-5 lg:px-0 lg:container lg:mx-auto">
         <Categories />
       </div>
 
