@@ -33,9 +33,9 @@ export function Header() {
 
   return (
     <div>
-      <Card className="flex justify-between p-[1.875rem] items-center">
+      <Card className="flex justify-between p-[1.875rem] items-center lg:container lg:mx-auto">
         <Sheet>
-          <SheetTrigger asChild>
+          <SheetTrigger asChild className="lg:hidden">
             <Button size="icon" variant="outline">
               <MenuIcon />
             </Button>
@@ -138,6 +138,36 @@ export function Header() {
             <span className="text-primary">KX</span> Store
           </h1>
         </Link>
+
+        <div className="hidden lg:flex lg:items-center lg:gap-9">
+          <Link href="/">
+            <Button variant="ghost" className="w-full justify-start gap-2">
+              Início
+            </Button>
+          </Link>
+
+          <Separator
+            orientation="vertical"
+            className="h-7 bg-accent-foreground"
+          />
+
+          <Link href="/catalog">
+            <Button variant="ghost" className="w-full justify-start gap-2">
+              Catálogo
+            </Button>
+          </Link>
+
+          <Separator
+            orientation="vertical"
+            className="h-7 bg-accent-foreground"
+          />
+
+          <Link href="/offers">
+            <Button variant="ghost" className="w-full justify-start gap-2">
+              Ofertas
+            </Button>
+          </Link>
+        </div>
 
         <Sheet>
           <SheetTrigger asChild>
