@@ -33,7 +33,7 @@ export function Header() {
 
   return (
     <div>
-      <Card className="flex justify-between p-[1.875rem] items-center lg:container lg:mx-auto">
+      <Card className="flex justify-between p-[1.875rem] items-center lg:container lg:mx-auto lg:border-0">
         <Sheet>
           <SheetTrigger asChild className="lg:hidden">
             <Button size="icon" variant="outline">

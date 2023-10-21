@@ -16,8 +16,8 @@ export function ProductImages({ imageUrls, name }: ProductImagesProps) {
   }
 
   return (
-    <div className="flex flex-col">
-      <div className="flex h-[380px] w-full items-center justify-center bg-accent">
+    <div className="flex flex-col lg:flex-row-reverse lg:rounded-xl lg:w-full">
+      <div className="flex h-[380px] lg:h-[35.875rem] w-full items-center justify-center bg-accent lg:rounded-r-xl">
         <Image
           src={currentImage}
           alt={name}
@@ -31,11 +31,11 @@ export function ProductImages({ imageUrls, name }: ProductImagesProps) {
         />
       </div>
 
-      <div className="mt-8 grid grid-cols-4 gap-4 px-5">
+      <div className="mt-8 grid grid-cols-4 gap-4 px-5 lg:flex lg:flex-col lg:gap-3 lg:bg-accent lg:rounded-l-xl lg:mt-0 lg:pt-8">
         {imageUrls.map((imageUrl) => (
           <button
             key={imageUrl}
-            className={`flex h-[100px] items-center justify-center rounded-lg bg-accent
+            className={`flex h-[100px] lg:w-[100px] items-center justify-center rounded-lg bg-accent"
             ${
               imageUrl === currentImage &&
               'border-2 border-solid border-primary'

@@ -36,9 +36,11 @@ export default async function ProductDetails({
   if (!product) return null
 
   return (
-    <div className="flex flex-col gap-8 pb-8">
-      <ProductImages imageUrls={product.imageUrls} name={product.name} />
-      <ProductInfo product={computeProductTotalPrice(product)} />
+    <div className="flex flex-col gap-8 pb-8 lg:container lg:mx-auto">
+      <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
+        <ProductImages imageUrls={product.imageUrls} name={product.name} />
+        <ProductInfo product={computeProductTotalPrice(product)} />
+      </div>
       <div>
         <SectionTitle>Produtos Recomendados</SectionTitle>
         <ProductList products={product.category.products} />
