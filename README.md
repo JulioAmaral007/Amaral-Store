@@ -1,9 +1,5 @@
 ## KX | Store
 
-<div align="center">
-  <img title="Home" src="public/Home.png" />
-</div>
-
 ## Tecnologias Utilizadas 🚀
 
 - **React**: Uma biblioteca JavaScript popular para construir interfaces de usuário interativas.
