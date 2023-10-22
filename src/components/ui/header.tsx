@@ -1,4 +1,5 @@
 'use client'
+
 import {
   HomeIcon,
   ListOrderedIcon,
@@ -7,6 +8,7 @@ import {
   MenuIcon,
   PercentIcon,
   ShoppingCartIcon,
+  User2,
 } from 'lucide-react'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -14,6 +16,14 @@ import { Avatar, AvatarFallback, AvatarImage } from './avatar'
 import { Button } from './button'
 import { Card } from './card'
 import { Cart } from './cart'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from './dropdown-menu'
 import { Separator } from './separator'
 import {
   Sheet,
@@ -169,17 +179,50 @@ export function Header() {
           </Link>
         </div>
 
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button size="icon" variant="outline">
-              <ShoppingCartIcon />
+        <div className="flex gap-10">
+          {status === 'unauthenticated' && (
+            <Button variant="outline" onClick={handleSignIn}>
+              Login
             </Button>
-          </SheetTrigger>
+          )}
 
-          <SheetContent className="w-[350px]">
-            <Cart />
-          </SheetContent>
-        </Sheet>
+          {status === 'authenticated' && data.user && (
+            <>
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Button size="icon" variant="outline">
+                    <User2 />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <Link href="/profile">Meu Perfil</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/my-trips">Meus pedidos</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSignOut}>
+                    Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </>
+          )}
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button size="icon" variant="outline">
+                <ShoppingCartIcon />
+              </Button>
+            </SheetTrigger>
+
+            <SheetContent className="w-[350px]">
+              <Cart />
+            </SheetContent>
+          </Sheet>
+        </div>
       </Card>
     </div>
   )
