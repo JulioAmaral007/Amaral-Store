@@ -7,6 +7,7 @@ import {
 import { Card } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { computeProductTotalPrice } from '@/helpers/product'
+import { getOrderStatus } from '@/helpers/status'
 import { Prisma } from '@prisma/client'
 import { format } from 'date-fns'
 import { useMemo } from 'react'
@@ -58,7 +59,9 @@ export function OrderItem({ order }: OrderItemProps) {
               <div className="flex items-center justify-between">
                 <div className="font-bold">
                   <p>Status</p>
-                  <p className="text-[#8162FF]">{order.status}</p>
+                  <p className="text-[#8162FF]">
+                    {getOrderStatus(order.status)}
+                  </p>
                 </div>
                 <div>
                   <p className="font-bold">Data</p>
