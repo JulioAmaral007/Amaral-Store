@@ -22,7 +22,7 @@ export default async function Offers() {
         Ofertas
       </Badge>
 
-      <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6 lg:gap-10 bg-white">
+      <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6 lg:gap-10">
         {deals.map((deal) => (
           <ProductItem key={deal.id} product={computeProductTotalPrice(deal)} />
         ))}
