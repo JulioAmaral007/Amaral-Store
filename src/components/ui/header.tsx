@@ -193,36 +193,38 @@ export function Header() {
         </div>
 
         <div className="flex gap-10">
-          {status === 'unauthenticated' && (
-            <Button variant="outline" onClick={handleSignIn}>
-              Login
-            </Button>
-          )}
+          <div className="hidden lg:flex">
+            {status === 'unauthenticated' && (
+              <Button variant="outline" onClick={handleSignIn}>
+                Login
+              </Button>
+            )}
 
-          {status === 'authenticated' && data.user && (
-            <>
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <Button size="icon" variant="outline">
-                    <User2 />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <Link href="/profile">Meu Perfil</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Link href="/my-trips">Meus pedidos</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleSignOut}>
-                    Logout
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </>
-          )}
+            {status === 'authenticated' && data.user && (
+              <>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Button size="icon" variant="outline">
+                      <User2 />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Link href="/profile">Meu Perfil</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link href="/orders">Meus pedidos</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleSignOut}>
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </>
+            )}
+          </div>
 
           <Sheet>
             <SheetTrigger asChild>
