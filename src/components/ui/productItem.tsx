@@ -25,9 +25,9 @@ export function ProductItem({ product, className }: ProductItemProps) {
           alt={product.name}
         />
 
-        {product.discountPercent > 0 && (
+        {product.discountPercentage > 0 && (
           <DiscountBadge className="absolute left-3 top-3">
-            {product.discountPercent}
+            {product.discountPercentage}
           </DiscountBadge>
         )}
       </div>
@@ -36,7 +36,7 @@ export function ProductItem({ product, className }: ProductItemProps) {
         <p className="truncate text-sm">{product.name}</p>
 
         <div className="flex items-center gap-2 ">
-          {product.discountPercent > 0 ? (
+          {product.discountPercentage > 0 ? (
             <>
               <p className="truncate font-semibold">
                 R$ {product.totalPrice.toFixed(2)}

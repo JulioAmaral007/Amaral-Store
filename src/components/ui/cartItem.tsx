@@ -47,7 +47,7 @@ export function CartItem({ product }: CartItemProps) {
             <p className="text-sm font-bold">
               R$ {product.totalPrice.toFixed(2)}
             </p>
-            {product.discountPercent > 0 && (
+            {product.discountPercentage > 0 && (
               <p className="text-xs line-through opacity-75">
                 R$ {Number(product.basePrice).toFixed(2)}
               </p>

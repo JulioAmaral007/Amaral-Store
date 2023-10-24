@@ -36,12 +36,12 @@ export function ProductInfo({ product }: ProductInfoProps) {
         <h1 className="text-xl font-bold">
           R$ {product.totalPrice.toFixed(2)}
         </h1>
-        {product.discountPercent > 0 && (
-          <DiscountBadge>{product.discountPercent}</DiscountBadge>
+        {product.discountPercentage > 0 && (
+          <DiscountBadge>{product.discountPercentage}</DiscountBadge>
         )}
       </div>
 
-      {product.discountPercent > 0 && (
+      {product.discountPercentage > 0 && (
         <p className="text-sm line-through opacity-75">
           R$ {Number(product.basePrice).toFixed(2)}
         </p>

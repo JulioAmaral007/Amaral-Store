@@ -7,7 +7,7 @@ import { PercentIcon } from 'lucide-react'
 export default async function Offers() {
   const deals = await prismaClient.product.findMany({
     where: {
-      discountPercent: {
+      discountPercentage: {
         gt: 0,
       },
     },

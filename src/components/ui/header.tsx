@@ -6,6 +6,7 @@ import {
   LogInIcon,
   LogOut,
   MenuIcon,
+  PackageSearchIcon,
   PercentIcon,
   ShoppingCartIcon,
   User2,
@@ -112,6 +113,18 @@ export function Header() {
                   >
                     <HomeIcon size={16} />
                     Início
+                  </Button>
+                </Link>
+              </SheetClose>
+
+              <SheetClose asChild>
+                <Link href="/orders">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start gap-2"
+                  >
+                    <PackageSearchIcon size={16} />
+                    Meus Pedidos
                   </Button>
                 </Link>
               </SheetClose>
