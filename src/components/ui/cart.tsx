@@ -6,6 +6,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { ShoppingCartIcon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import { useContext } from 'react'
+import { toast } from 'react-toastify'
 import { Badge } from './badge'
 import { Button } from './button'
 import { CartItem } from './cartItem'
@@ -28,6 +29,10 @@ export function Cart() {
     const checkout = await createCheckout(products, order.id)
 
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
+
+    toast.success('Pedido finalizado com sucesso!', {
+      position: 'bottom-center',
+    })
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id,
