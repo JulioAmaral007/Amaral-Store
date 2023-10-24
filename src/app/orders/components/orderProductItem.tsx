@@ -43,7 +43,7 @@ export default function OrderProductItem({
               R$ {productWithTotalPrice.totalPrice.toFixed(2)}
             </p>
 
-            {productWithTotalPrice.discountPercentage > 0 && (
+            {productWithTotalPrice.discountPercent > 0 && (
               <p className="text-xs line-through opacity-60">
                 R$ {Number(productWithTotalPrice.basePrice).toFixed(2)}
               </p>

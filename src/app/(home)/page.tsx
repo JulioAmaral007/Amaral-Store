@@ -7,7 +7,7 @@ import { PromoBanner } from './components/promoBanner'
 export default async function Home() {
   const deals = await prismaClient.product.findMany({
     where: {
-      discountPercentage: {
+      discountPercent: {
         gt: 0,
       },
     },
