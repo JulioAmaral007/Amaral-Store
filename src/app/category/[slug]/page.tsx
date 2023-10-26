@@ -20,10 +20,7 @@ export default async function CategoryProducts({ params }: any) {
   }
   return (
     <div className="flex flex-col gap-8 p-5 lg:container lg:mx-auto">
-      <Badge
-        className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase lg:w-1/6 lg:justify-center lg:py-2"
-        variant="outline"
-      >
+      <Badge variant="heading">
         {CATEGORY_ICON[params.slug as keyof typeof CATEGORY_ICON]}
         {category.name}
       </Badge>
