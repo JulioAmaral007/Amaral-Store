@@ -1,34 +1,9 @@
-import { ProductList } from '@/components/ui/productList'
 import { SectionTitle } from '@/components/ui/sectionTitle'
-import { prismaClient } from '@/lib/prisma'
+import { Skeleton } from '@/components/ui/skeleton'
 import { Categories } from './components/categories'
 import { PromoBanner } from './components/promoBanner'
 
-export default async function Home() {
-  const deals = await prismaClient.product.findMany({
-    where: {
-      discountPercent: {
-        gt: 0,
-      },
-    },
-  })
-
-  const keyboards = await prismaClient.product.findMany({
-    where: {
-      category: {
-        slug: 'keyboards',
-      },
-    },
-  })
-
-  const mouses = await prismaClient.product.findMany({
-    where: {
-      category: {
-        slug: 'mouses',
-      },
-    },
-  })
-
+export default function HomeLoading() {
   return (
     <div className="flex flex-col gap-8 py-8">
       <div className="flex lg:hidden">
@@ -50,9 +25,17 @@ export default async function Home() {
           <Categories />
         </div>
 
-        <div>
+        <div className="">
           <SectionTitle>Ofertas</SectionTitle>
-          <ProductList products={deals} />
+
+          <div className="flex gap-5">
+            {[...Array(7)].map((x, i) => (
+              <Skeleton
+                className="flex aspect-square w-[156px] items-center justify-center rounded-lg bg-accent"
+                key={i}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="lg:flex lg:px-0 lg:gap-10 lg:justify-center">
@@ -71,9 +54,17 @@ export default async function Home() {
           </div>
         </div>
 
-        <div>
+        <div className="">
           <SectionTitle>Teclados</SectionTitle>
-          <ProductList products={keyboards} />
+
+          <div className="flex gap-5">
+            {[...Array(7)].map((x, i) => (
+              <Skeleton
+                className="flex aspect-square w-[156px] items-center justify-center rounded-lg bg-accent"
+                key={i}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="flex lg:hidden">
@@ -92,7 +83,15 @@ export default async function Home() {
 
         <div className="">
           <SectionTitle>Mouses</SectionTitle>
-          <ProductList products={mouses} />
+
+          <div className="flex gap-5">
+            {[...Array(7)].map((x, i) => (
+              <Skeleton
+                className="flex aspect-square w-[156px] items-center justify-center rounded-lg bg-accent"
+                key={i}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

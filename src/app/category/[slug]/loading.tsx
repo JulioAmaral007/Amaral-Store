@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 
-export default function OffersLoading() {
+export default function CategoryLoading() {
   return (
     <div className="flex flex-col gap-8 p-5 lg:container lg:mx-auto">
       <Badge variant="outline" className="border-0">

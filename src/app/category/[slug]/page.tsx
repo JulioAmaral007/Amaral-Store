@@ -18,6 +18,7 @@ export default async function CategoryProducts({ params }: any) {
   if (!category) {
     return null
   }
+
   return (
     <div className="flex flex-col gap-8 p-5 lg:container lg:mx-auto">
       <Badge variant="heading">
