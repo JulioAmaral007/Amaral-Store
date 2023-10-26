@@ -1,5 +1,6 @@
 'use client'
 
+import { CartContext } from '@/providers/cart'
 import {
   HomeIcon,
   ListOrderedIcon,
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useContext } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from './avatar'
 import { Button } from './button'
 import { Card } from './card'
@@ -37,6 +39,10 @@ import {
 
 export function Header() {
   const { status, data } = useSession()
+
+  const { products } = useContext(CartContext)
+
+  const cartQuantityItems = products.length
 
   const handleSignIn = async () => await signIn()
 
@@ -228,7 +234,12 @@ export function Header() {
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline">
+              <Button size="icon" variant="outline" className="relative">
+                {cartQuantityItems > 0 && (
+                  <span className="bg-primary rounded-lg w-6 h-6 flex items-center justify-center text-sm font-bold absolute top-[calc(-1.25rem/2)] right-[calc(-1.25rem/2)]">
+                    {cartQuantityItems}
+                  </span>
+                )}
                 <ShoppingCartIcon />
               </Button>
             </SheetTrigger>
