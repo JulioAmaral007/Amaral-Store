@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { DiscountBadge } from './discountBadge'
+import { ProductPrice } from './productBasePrice'
 
 interface ProductItemProps {
   product: ProductWithTotalPrice
@@ -38,18 +39,20 @@ export function ProductItem({ product, className }: ProductItemProps) {
         <div className="flex items-center gap-2 ">
           {product.discountPercent > 0 ? (
             <>
-              <p className="truncate font-semibold">
-                R$ {product.totalPrice.toFixed(2)}
-              </p>
-
-              <p className="truncate text-xs line-through opacity-75">
-                R$ {Number(product.basePrice).toFixed(2)}
-              </p>
+              <ProductPrice
+                price={product.totalPrice}
+                className="overflow-hidden text-ellipsis whitespace-nowrap font-semibold"
+              />
+              <ProductPrice
+                price={Number(product.basePrice)}
+                className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75"
+              />
             </>
           ) : (
-            <p className="truncate text-sm font-semibold">
-              R$ {product.basePrice.toFixed(2)}
-            </p>
+            <ProductPrice
+              price={Number(product.basePrice)}
+              className="overflow-hidden text-ellipsis whitespace-nowrap text-sm font-semibold"
+            />
           )}
         </div>
       </div>

@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/ui/button'
 import { DiscountBadge } from '@/components/ui/discountBadge'
+import { ProductPrice } from '@/components/ui/productBasePrice'
+import { formatPrice } from '@/helpers/formatPrice'
 import { ProductWithTotalPrice } from '@/helpers/product'
 import { CartContext } from '@/providers/cart'
 import { ArrowLeft, ArrowRight, TruckIcon } from 'lucide-react'
@@ -38,18 +40,17 @@ export function ProductInfo({ product }: ProductInfoProps) {
       <h2 className="text-lg lg:text-2xl">{product.name}</h2>
 
       <div className="flex items-center gap-2">
-        <h1 className="text-xl font-bold">
-          R$ {product.totalPrice.toFixed(2)}
-        </h1>
+        <h2 className="text-xl font-bold">{formatPrice(product.totalPrice)}</h2>
         {product.discountPercent > 0 && (
           <DiscountBadge>{product.discountPercent}</DiscountBadge>
         )}
       </div>
 
       {product.discountPercent > 0 && (
-        <p className="text-sm line-through opacity-75">
-          R$ {Number(product.basePrice).toFixed(2)}
-        </p>
+        <ProductPrice
+          price={Number(product.basePrice)}
+          className="text-sm line-through opacity-75"
+        />
       )}
 
       <div className="mt-4 flex items-center gap-2">
@@ -84,22 +85,20 @@ export function ProductInfo({ product }: ProductInfoProps) {
         Adicionar ao carrinho
       </Button>
 
-      <div className="mt-5 flex items-center justify-between rounded-lg bg-zinc-800 px-5 py-2">
-        <div className="flex items-center gap-2">
+      <section className="mt-5 flex items-center justify-between rounded-lg bg-accent px-5 py-2">
+        <div className=" flex items-center gap-3">
           <TruckIcon />
-
           <div className="flex flex-col">
-            <p className="text-xs">
-              Entrega via <span className="font-bold">FSPacket®</span>
-            </p>
-            <p className="text-xs text-[#8162FF]">
-              Envio para <span className="font-bold">todo Brasil</span>
-            </p>
+            <h3 className="text-xs">
+              Entrega via <span className="font-semibold">FSPacket®</span>
+            </h3>
+            <legend className="text-xs text-[#8162FF]">
+              Envio para <span className="font-semibold">todo o Brasil</span>
+            </legend>
           </div>
         </div>
-
         <p className="text-xs font-bold">Frete grátis</p>
-      </div>
+      </section>
     </div>
   )
 }
