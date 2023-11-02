@@ -16,7 +16,7 @@ export function ProductItem({ product, className }: ProductItemProps) {
       href={`/product/${product.slug}`}
       className={cn('flex min-w-[156px] flex-col gap-4', className)}
     >
-      <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent">
+      <div className="relative flex w-full items-center justify-center rounded-lg bg-accent lg:h-[200px]">
         <Image
           src={product.imageUrls[0]}
           height={0}
