@@ -1,12 +1,12 @@
+import { cn } from '@/lib/utils'
 import Image, { ImageProps } from 'next/image'
-
-export function PromoBanner({ alt, ...props }: ImageProps) {
+export function PromoBanner({ alt, className, ...props }: ImageProps) {
   return (
     <Image
-      className="h-auto w-full px-5 lg:px-0"
-      sizes="100vw"
       height={0}
       width={0}
+      className={cn('h-auto w-full px-5', className)}
+      sizes="100vw"
       alt={alt}
       {...props}
     />
