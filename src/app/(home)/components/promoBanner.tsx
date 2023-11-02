@@ -5,7 +5,7 @@ export function PromoBanner({ alt, className, ...props }: ImageProps) {
     <Image
       height={0}
       width={0}
-      className={cn('h-auto w-full px-5', className)}
+      className={cn('h-auto w-full', className)}
       sizes="100vw"
       alt={alt}
       {...props}

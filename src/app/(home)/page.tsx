@@ -1,7 +1,7 @@
 import { ProductList } from '@/components/ui/productList'
 import { SectionTitle } from '@/components/ui/sectionTitle'
 import { prismaClient } from '@/lib/prisma'
-import Image from 'next/image'
+import Link from 'next/link'
 import { Categories } from './components/categories'
 import { PromoBanner } from './components/promoBanner'
 
@@ -33,22 +33,23 @@ export default async function Home() {
   return (
     <>
       <div className="mx-auto max-w-[1920px]">
-        <Image
-          src="/banner-home-lg-01.png"
-          className="hidden h-auto w-full lg:block"
-          width={0}
-          height={0}
-          sizes="100vw"
-          alt="Até 55% de desconto esse mês!"
-        />
+        <Link href="/offers">
+          <PromoBanner
+            src="/banner-home-lg-01.png"
+            className="hidden h-auto w-full lg:block"
+            alt="Até 55% de desconto esse mês!"
+          />
+        </Link>
       </div>
 
       <div className="mx-auto flex flex-col gap-8 py-8 lg:container lg:gap-10">
-        <PromoBanner
-          src="/banner-home-01.png"
-          alt="Até 55% de desconto esse mês!"
-          className="lg:hidden"
-        />
+        <Link href="/offers">
+          <PromoBanner
+            src="/banner-home-01.png"
+            alt="Até 55% de desconto esse mês!"
+            className="px-5 lg:hidden"
+          />
+        </Link>
 
         <div className="px-5 lg:mt-2">
           <Categories />
@@ -60,40 +61,48 @@ export default async function Home() {
         </div>
 
         <div className="flex flex-col lg:flex-row">
-          <PromoBanner
-            src="/banner-home-02.png"
-            alt="Até 55% de desconto em mouses!"
-            className="w-0 flex-1"
-          />
+          <Link href="/category/mouses" className="flex flex-1">
+            <PromoBanner
+              src="/banner-home-02.png"
+              alt="Até 55% de desconto em mouses!"
+              className="w-0 flex-1 px-5"
+            />
+          </Link>
 
-          <PromoBanner
-            src="/banner-home-03.png"
-            alt="Até 55% de desconto em mouses!"
-            className="hidden w-0 flex-1 lg:block"
-          />
+          <Link href="/category/headphones" className="flex flex-1">
+            <PromoBanner
+              src="/banner-home-03.png"
+              alt="Até 55% de desconto em fones!"
+              className="hidden w-0 flex-1 lg:block"
+            />
+          </Link>
         </div>
 
         <div className="flex flex-col gap-3 lg:gap-5">
-          <SectionTitle className="pl-5">Ofertas</SectionTitle>
+          <SectionTitle className="pl-5">Teclados</SectionTitle>
           <ProductList products={keyboards} />
         </div>
 
         <div>
-          <PromoBanner
-            src="/banner-home-03.png"
-            alt="Até 55% de desconto em mouses!"
-            className="lg:hidden"
-          />
+          <Link href="/category/headphones">
+            <PromoBanner
+              src="/banner-home-03.png"
+              alt="Até 55% de desconto em mouses!"
+              className="px-5 lg:hidden"
+            />
+          </Link>
 
-          <PromoBanner
-            src="/banner-frete-gratis.png"
-            alt="Até 55% de desconto em mouses!"
-            className="hidden lg:block"
-          />
+          <Link href="/catalog">
+            <PromoBanner
+              src="/banner-frete-gratis.png"
+              alt="Até 55% de desconto em mouses!"
+              className="hidden px-5 lg:block"
+            />
+          </Link>
         </div>
 
         <div className="flex flex-col gap-3 lg:gap-5">
-          <SectionTitle className="pl-5">Ofertas</SectionTitle>
+          <SectionTitle className="pl-5">Mouses</SectionTitle>
           <ProductList products={mouses} />
         </div>
       </div>
