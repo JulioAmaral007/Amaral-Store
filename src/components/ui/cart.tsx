@@ -1,5 +1,6 @@
 import { createCheckout } from '@/actions/checkout'
 import { createOrder } from '@/actions/order'
+import { formatPrice } from '@/helpers/formatPrice'
 import { computeProductTotalPrice } from '@/helpers/product'
 import { CartContext } from '@/providers/cart'
 import { loadStripe } from '@stripe/stripe-js'
@@ -70,30 +71,30 @@ export function Cart() {
         <div className="flex flex-col gap-3">
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className="flex items-center justify-between text-xs lg:text-sm">
             <p>Subtotal</p>
-            <p>R$ {subtotal.toFixed(2)}</p>
+            <p>{formatPrice(subtotal)}</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className="flex items-center justify-between text-xs lg:text-sm">
             <p>Entrega</p>
             <p>GRÁTIS</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className="flex items-center justify-between text-xs lg:text-sm">
             <p>Descontos</p>
-            <p>- R$ {totalDiscount.toFixed(2)}</p>
+            <p>- {formatPrice(totalDiscount)}</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-sm font-bold">
+          <div className="flex items-center justify-between text-sm font-bold lg:text-text">
             <p>Total</p>
-            <p>R$ {total.toFixed(2)}</p>
+            <p>{formatPrice(total)}</p>
           </div>
 
           <Button
