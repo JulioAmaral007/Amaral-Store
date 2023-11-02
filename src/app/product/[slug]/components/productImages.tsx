@@ -16,8 +16,8 @@ export function ProductImages({ imageUrls, name }: ProductImagesProps) {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row-reverse lg:rounded-xl lg:w-full">
-      <div className="flex h-[380px] lg:h-[35.875rem] w-full items-center justify-center bg-accent lg:rounded-r-xl">
+    <div className="flex flex-col lg:min-h-full lg:w-3/5">
+      <div className="flex h-[380px] w-full items-center justify-center bg-accent lg:h-full lg:rounded-lg">
         <Image
           src={currentImage}
           alt={name}
@@ -28,7 +28,7 @@ export function ProductImages({ imageUrls, name }: ProductImagesProps) {
         />
       </div>
 
-      <div className="mt-8 grid grid-cols-4 gap-4 px-5 lg:flex lg:flex-col lg:gap-3 lg:bg-accent lg:rounded-l-xl lg:mt-0 lg:pt-8">
+      <div className="mt-8 grid grid-cols-4 gap-4 px-5 lg:px-0">
         {imageUrls.map((imageUrl) => (
           <button
             key={imageUrl}
