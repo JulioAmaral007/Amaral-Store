@@ -4,7 +4,7 @@ import {
   MonitorIcon,
   MouseIcon,
   SpeakerIcon,
-  SquareDashedBottom
+  SquareDashedBottom,
 } from 'lucide-react'
 
 export const CATEGORY_ICON = {
