@@ -5,7 +5,7 @@ import { CartProvider } from '@/providers/cart'
 import ToastProvider from '@/providers/toast'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
 
 const roboto = Roboto({
   subsets: ['latin'],
