@@ -6,7 +6,6 @@ import {
 } from '@/components/ui/accordion'
 import { Card } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { formatPrice } from '@/helpers/formatPrice'
 import { computeProductTotalPrice } from '@/helpers/product'
 import { getOrderStatus } from '@/helpers/status'
 import { Prisma } from '@prisma/client'
@@ -111,30 +110,30 @@ export function OrderItem({ order }: OrderItemProps) {
               <div className="flex w-full flex-col gap-1 text-xs">
                 <Separator />
 
-                <div className="flex items-center justify-between text-xs lg:text-sm">
+                <div className="flex w-full justify-between py-3 lg:text-sm">
                   <p>Subtotal</p>
-                  <p>{formatPrice(subtotal)}</p>
+                  <p>R$ {subtotal.toFixed(2)}</p>
                 </div>
 
                 <Separator />
 
-                <div className="flex items-center justify-between text-xs lg:text-sm">
+                <div className="flex w-full justify-between py-3 lg:text-sm">
                   <p>Entrega</p>
                   <p>GRÁTIS</p>
                 </div>
 
                 <Separator />
 
-                <div className="flex items-center justify-between text-xs lg:text-sm">
+                <div className="flex w-full justify-between py-3 lg:text-sm">
                   <p>Descontos</p>
-                  <p>- {formatPrice(totalDiscounts)}</p>
+                  <p>-R$ {totalDiscounts.toFixed(2)}</p>
                 </div>
 
                 <Separator />
 
-                <div className="flex items-center justify-between text-sm font-bold lg:text-text">
+                <div className="flex w-full justify-between py-3 text-sm font-bold lg:text-base">
                   <p>Total</p>
-                  <p>{formatPrice(total)}</p>
+                  <p>R$ {total.toFixed(2)}</p>
                 </div>
               </div>
             </div>
