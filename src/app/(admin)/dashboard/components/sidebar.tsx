@@ -16,7 +16,7 @@ export function Sidebar() {
   return (
     <div className="flex min-w-[300px] flex-col items-center gap-8 border-r border-solid border-accent bg-background p-8">
       <h1 className="text-lg font-semibold">
-        <span className="text-primary">FSW</span> Store
+        <span className="text-primary">KX</span> Store
       </h1>
       <div className="flex w-full flex-col gap-3">
         <Button variant="outline" className="flex w-full justify-start gap-2">
