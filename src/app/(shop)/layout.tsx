@@ -1,5 +1,6 @@
 import { Footer } from '@/components/ui/footer'
 import { Header } from '@/components/ui/header'
+import { ThemeProvider } from '@/components/ui/theme-provider'
 import { NextAuthProvider } from '@/providers/auth'
 import { CartProvider } from '@/providers/cart'
 import ToastProvider from '@/providers/toast'
@@ -41,17 +42,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <div className="flex flex-col h-full">
-          <NextAuthProvider>
-            <CartProvider>
-              <ToastProvider>
-                <Header />
-                <div className="flex-1">{children}</div>
-                <Footer />
-              </ToastProvider>
-            </CartProvider>
-          </NextAuthProvider>
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex flex-col h-full">
+            <NextAuthProvider>
+              <CartProvider>
+                <ToastProvider>
+                  <Header />
+                  <div className="flex-1">{children}</div>
+                  <Footer />
+                </ToastProvider>
+              </CartProvider>
+            </NextAuthProvider>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

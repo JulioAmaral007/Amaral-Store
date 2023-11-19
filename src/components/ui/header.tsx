@@ -27,6 +27,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './dropdown-menu'
+import { ModeToggle } from './modeToggle'
 import { Separator } from './separator'
 import {
   Sheet,
@@ -248,6 +249,8 @@ export function Header() {
               <Cart />
             </SheetContent>
           </Sheet>
+
+          <ModeToggle />
         </div>
       </Card>
     </div>
