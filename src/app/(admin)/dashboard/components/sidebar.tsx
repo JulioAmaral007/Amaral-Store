@@ -1,5 +1,4 @@
 'use client'
-
 import { Button } from '@/components/ui/button'
 import {
   LayoutDashboardIcon,
@@ -19,10 +18,17 @@ export function Sidebar() {
         <span className="text-primary">KX</span> Store
       </h1>
       <div className="flex w-full flex-col gap-3">
-        <Button variant="outline" className="flex w-full justify-start gap-2">
-          <LayoutDashboardIcon size={16} />
-          Dashboard
-        </Button>
+        <Link href="/dashboard">
+          <Button
+            variant="outline"
+            className={`flex w-full justify-start gap-2
+ 
+        `}
+          >
+            <LayoutDashboardIcon size={16} />
+            Dashboard
+          </Button>
+        </Link>
 
         <Link href="/dashboard/products">
           <Button
